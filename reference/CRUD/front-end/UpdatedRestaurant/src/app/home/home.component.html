@@ -1,0 +1,58 @@
+<!-- Editable table -->
+<div class="card">
+  <h3 class="card-header text-center font-weight-bold text-uppercase py-4">Booking List</h3>
+  <div class="card-body">
+    <div id="table" class="table-editable">
+      <span class="table-add float-right mb-3 mr-2">
+        <!--<a class="text-success" (click)="fullData()">
+          <mdb-icon fas icon="plus" size="2x"></mdb-icon>
+        </a>-->
+       <a>
+        <button type="button" mdbBtn color="primary" rounded="true" size="sm" class="my-0" (click)="fullData()">Show Details</button>
+       </a> 
+      </span>
+      <table class="table table-bordered table-responsive-md table-striped text-center">
+        <tr>
+          <th class="text-center">ID</th>
+          <th class="text-center">Name</th>
+          <th class="text-center">Email</th>
+          <th class="text-center">No of person</th>
+          <th class="text-center">Date</th>
+          <th class="text-center">Sort</th>
+          <th class="text-center">Remove</th>
+        </tr>
+        <tr *ngFor="let person of allData | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize; let ind = index">
+          <td>
+            <span id="newid">{{person.id}}</span>
+          </td>
+          <td>
+            <span contenteditable="true" id="newname" (keyup)="changeName(ind, 'name', $event)">{{person.name}}</span>
+          </td>
+          <td>
+            <span contenteditable="true" id="newemail" (keyup)="changeEmail(ind, 'email', $event)">{{person.email}}</span>
+          </td>
+          <td>
+            <span contenteditable="true" id="newnoOfPerson" (keyup)="changeNoofpeoples(ind, 'noofpeoples', $event)">{{person.no_of_peoples}}</span>
+          </td>
+          <td>
+            <span contenteditable="true" id="newdate" (keyup)="changeDate(ind, 'date', $event)">{{person.date}}</span>
+          </td>
+          <td>
+            <span class="table-remove">
+              <button type="button" mdbBtn color="secondary" rounded="true" size="sm" class="my-0" 
+              (click)="edit(person)">Update</button>
+            </span>
+          </td>
+          <td>
+            <span class="table-remove">
+              <button type="button" mdbBtn color="danger" rounded="true" size="sm" class="my-0" (click)="delete(person)">Remove</button>
+            </span>
+          </td>
+        </tr>
+      </table>
+      <ngb-pagination [collectionSize]="allData.length" [(page)]="page" [maxSize]="5" [rotate]="true" 
+        [ellipses]="false" [boundaryLinks]="true"></ngb-pagination>
+    </div>
+  </div>
+</div>
+<!-- Editable table -->

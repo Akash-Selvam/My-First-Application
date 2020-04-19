@@ -1,0 +1,131 @@
+<div class="container col-sm-6" style="text-align: center;">
+  <div class="card-deck" style="margin-top: 70px;">
+    <div class="card bg-warning">
+      <div class="card-body ">
+  
+  <!-- Default form register -->
+  <form class="text-center border border-light p-5"
+      *ngIf="!isSuccessful"
+      name="form"
+      (ngSubmit)="f.form.valid && onSubmit()"
+      #f="ngForm"
+      novalidate>
+  
+    <p class="h4 mb-4">Sign up</p>
+  
+    <div class="form-row mb-4">
+      <div class="col">
+        <!-- First name -->
+        <input type="text" id="defaultRegisterFormFirstName" class="form-control" placeholder="First name"
+        aria-describedby="defaultRegisterFormFirstNameHelpBlock"
+          name="username"
+          [(ngModel)]="form.username"
+          required
+          minlength="3"
+          maxlength="20"
+          #username="ngModel">
+          <small id="defaultRegisterFormFirstNameHelpBlock" class="form-text text-muted mb-4" style="text-align: left;">
+            required, minLength=3, maxLength=20
+          </small>
+          <div class="alert-danger" *ngIf="f.submitted && username.invalid">
+            <div *ngIf="username.errors.required">Username is required</div>
+            <div *ngIf="username.errors.minlength">
+              Username must be at least 3 characters
+            </div>
+            <div *ngIf="username.errors.maxlength">
+              Username must be at most 20 characters
+            </div>
+          </div>
+      </div>
+      <!--<div class="col">
+         Last name 
+        <input type="text" id="defaultRegisterFormLastName" class="form-control" placeholder="Last name">
+      </div> -->
+     
+  
+    <!-- E-mail -->
+    <input type="email" id="defaultRegisterFormEmail" class="form-control mb-4" placeholder="E-mail"
+          name="email"
+          [(ngModel)]="form.email"
+          required
+          email
+          #email="ngModel">
+          <div class="alert-danger" *ngIf="f.submitted && email.invalid">
+            <div *ngIf="email.errors.required">Email is required</div>
+            <div *ngIf="email.errors.email">
+              Email must be a valid email address
+            </div>
+          </div>
+  
+    <!-- Password -->
+    <input type="password" id="defaultRegisterFormPassword" class="form-control" placeholder="Password" 
+          aria-describedby="defaultRegisterFormPasswordHelpBlock"
+          name="password"
+          [(ngModel)]="form.password"
+          required
+          minlength="6"
+          #password="ngModel">
+            <small id="defaultRegisterFormPasswordHelpBlock" class="form-text text-muted mb-4" >
+              required, minLength=6
+            </small>
+    <div class="alert-danger" *ngIf="f.submitted && password.invalid">
+      <div *ngIf="password.errors.required">Password is required</div>
+      <div *ngIf="password.errors.minlength">
+        Password must be at least 6 characters
+      </div>
+    </div>
+  </div>
+  
+    <!-- Phone number 
+    <input type="text" id="defaultRegisterPhonePassword" class="form-control" placeholder="Phone number" aria-describedby="defaultRegisterFormPhoneHelpBlock">
+    <small id="defaultRegisterFormPhoneHelpBlock" class="form-text text-muted mb-4">
+      Optional - for two-step authentication
+    </small> -->
+  
+    <!-- Newsletter 
+    <div class="row">
+      <div class="col-md-6 mx-auto d-flex justify-content-center">
+        <mdb-checkbox [default]="true">Subscribe to our newsletter</mdb-checkbox>
+      </div>
+    </div> -->
+  
+    <!-- Sign up button -->
+    <button mdbBtn color="info" block="true" class="my-4" >Sign in</button>
+
+    <div class="alert alert-warning" *ngIf="f.submitted && isSignUpFailed">
+      Signup failed!<br />{{ errorMessage }}
+    </div>
+  
+    <!-- Social register -->
+    <p>or sign up with:</p>
+  
+    <a type="button" class="light-blue-text mx-2">
+      <mdb-icon fab icon="facebook"></mdb-icon>
+    </a>
+    <a type="button" class="light-blue-text mx-2">
+      <mdb-icon fab icon="twitter"></mdb-icon>
+    </a>
+    <a type="button" class="light-blue-text mx-2">
+      <mdb-icon fab icon="linkedin"></mdb-icon>
+    </a>
+    <a type="button" class="light-blue-text mx-2">
+      <mdb-icon fab icon="github"></mdb-icon>
+    </a>
+  
+    <hr>
+  
+    <!-- Terms of service -->
+    <p>By clicking
+      <em>Sign up</em> you agree to our
+      <a href="" target="_blank">terms of service</a></p>
+  
+  </form>
+  <!-- Default form register -->
+  <div class="alert alert-success" *ngIf="isSuccessful">
+    Your registration is successful!
+  </div>
+  
+  </div>
+  </div>
+  </div>
+</div>

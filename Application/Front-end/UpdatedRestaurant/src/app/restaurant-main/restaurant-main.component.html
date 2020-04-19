@@ -1,0 +1,55 @@
+<div style="background: url(/assets/restaurant.jpg)" class="page-holder bg-cover">
+    <nav class="navbar navbar-expand bg-warning navbar-dark" >
+      <a routerLink='/bio' class="navbar-brand"><h5>Restaurant</h5></a>
+          <ul class="navbar-nav mr-auto" routerLinkActive="active">
+            <li class="nav-item">
+              <a class="nav-link text-secondary"
+              routerLink='/home'><h6>Home</h6></a>
+            </li>  
+            <li class="nav-item">
+              <a class="nav-link text-secondary" 
+              routerLink='/user' *ngIf="isadmin"><h6>User</h6></a>
+            </li>  
+            <li class="nav-item">
+              <a class="nav-link text-secondary" 
+              routerLink='/update' *ngIf="isadmin"><h6>Update booking</h6></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-secondary" 
+              routerLink='/view' *ngIf="isadmin"><h6>View booking</h6></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-secondary" 
+              routerLink='/booking' *ngIf="isuser"><h6>Book a table</h6></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-secondary" 
+              routerLink='/view' *ngIf="isuser"><h6>View booking</h6></a>
+            </li>
+          </ul>
+
+          <ul class="navbar-nav" *ngIf="!isLoggedIn">
+            <li class="nav-item">
+              <a class="nav-link text-secondary" 
+              routerLink='/signup'><h6>Sign-Up</h6></a>
+            </li> 
+            <li class="nav-item">
+              <a class="nav-link text-secondary" 
+              routerLink='/signin'><h6>Login</h6></a>
+            </li>
+          </ul>
+
+          <ul class="navbar-nav" *ngIf="isLoggedIn">
+            <li class="nav-item">
+              
+              <a class="nav-link text-secondary" 
+              routerLink='/profile'><h6>Hi {{ username }}</h6></a>
+            </li>
+            <li class="nav-item">
+              <a href class="nav-link text-secondary" (click)="logout()"><h6>LogOut</h6></a>
+            </li>
+          </ul>  
+      </nav>
+      <br>
+      <router-outlet></router-outlet>
+</div>

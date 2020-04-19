@@ -1,0 +1,52 @@
+
+<div class="container">
+
+    <div class="card-deck col-lg-6" style="margin-top: 70px;">
+        <div class="card bg-warning">
+          <div class="card-body ">
+            <form #bookform = "ngForm" (ngSubmit)="createBooking()">
+                <div class="form-group">
+                  <label for="name">Name</label>
+                    <input type="text" class="form-control" id="name" required minlength="4" [(ngModel)]="detail.name" 
+                    name="name" #name="ngModel" [ngClass]="{'is-invalid': name.invalid}" required minlength="4">
+                    <div *ngIf="name.invalid" class="invalid-feedback">
+                        <div *ngIf="name.errors.required" class="alert alert-danger">Name is required</div>
+                        <div *ngIf="name.errors.minlength" class="alert alert-danger">Name should have atleast 4 characters</div>
+                    </div>
+                  <!--<div [hidden]="name.valid || name.pristine" class="alert alert-danger">Name is required</div>-->
+                </div>
+                <div class="form-group">
+                  <label for="name">Email</label>
+                    <input type="text" class="form-control" id="email" required [(ngModel)]="detail.email" name="email" #email="ngModel"
+                    [ngClass]="{ 'is-invalid': email.invalid }" required email />
+                    <div *ngIf="email.invalid" class="invalid-feedback">
+                        <div *ngIf="email.errors.required" class="alert alert-danger">Email is required</div>
+                        <div *ngIf="email.errors.email" class="alert alert-danger">Email must be a valid email address</div>
+                    </div>
+                 <!--<div [hidden]="email.valid || email.pristine" class="alert alert-danger">email is required--> 
+                </div>
+                <div class="form-group">
+                  <label for="name">Number of Person</label>
+                    <input type="number" class="form-control" id="person" required [(ngModel)]="detail.noOfPerson" name="person" #person="ngModel">
+                  
+                  <div [hidden]="person.valid || person.pristine" class="alert alert-danger">Please enter the number of persons
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="name">date</label>
+                    <input type="date" class="form-control" id="person" required [(ngModel)]="detail.date" name="date" #date="ngModel">
+                  
+                  <div [hidden]="date.valid || date.pristine" class="alert alert-danger">Please enter the valid date
+                  </div>
+                </div>
+                <div class="text-center">
+                    <button type="submit" class="btn btn-success" [disabled]="!bookform.form.valid">Submit</button>
+                </div>
+                
+          
+              </form>
+          </div>
+        </div>
+      </div>
+    
+</div>

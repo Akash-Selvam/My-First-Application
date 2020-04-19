@@ -1,0 +1,39 @@
+
+<div class="container" style="margin-top: 70px;">
+
+  <div>
+    <button class="btn btn-primary" (click)="fullData()"> Show Details</button>
+  </div><br><br>
+  <div class="form-group">
+    <input type="text" class="form-control" placeholder="Search Here" [(ngModel)]="term">
+  </div>
+        <div class="card-deck col-lg-12" style="margin-top: 70px;">
+          <div class="card bg-warning">
+            <div class="card-body ">
+              <table class="table table-hover">
+                  <thead>
+                    <tr>
+                      <th>ID</th>
+                      <th>Name</th>
+                      <th>Email</th>
+                      <th>No Of Persons</th>
+                      <th>Date</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor = "let data of allData | filter: term | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize ">
+              
+                      <td><h5>{{ data.id }}</h5></td>
+                      <td> <h5>{{ data.name }}</h5></td>
+                      <td> <h5>{{ data.email }}</h5></td>
+                      <td> <h5>{{ data.no_of_peoples }}</h5></td>
+                      <td> <h5>{{ data.date | date : 'fullDate'}}</h5></td>
+                    </tr>
+                  </tbody>
+                </table>
+                <ngb-pagination [collectionSize]="allData.length" [(page)]="page" [maxSize]="5" [rotate]="true" 
+                [ellipses]="false" [boundaryLinks]="true"></ngb-pagination>
+            </div>
+          </div>
+        </div>
+    </div>

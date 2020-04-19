@@ -1,0 +1,120 @@
+/*
+*
+* ==========================================
+* CUSTOM UTIL CLASSES
+* ==========================================
+*
+*/
+.profile-header {
+    transform: translateY(5rem);
+}
+
+
+/*
+*
+* ==========================================
+* FOR DEMO PURPOSE
+* ==========================================
+*
+*/
+
+.jumbotron
+{
+  opacity: .8;
+}
+
+.my-4
+{
+    color: #e2b9b9;
+}
+
+@import url(//fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700,800);
+.testimonial2 {
+  font-family: "Montserrat", sans-serif;
+  color: #e2b9b9;
+  font-weight: 300;
+}
+
+.testimonial2 h1,
+.testimonial2 h2,
+.testimonial2 h3,
+.testimonial2 h4{
+  color: #ff4d7e;
+}
+
+.subtitle{
+    color: #e2b9b9;
+
+}
+
+.testimonial2 h5 {
+    line-height: 22px;
+    font-size: 18px;
+		font-weight: 400;
+}
+
+.testimonial2 .font-weight-medium {
+  font-weight: 500;
+}
+
+.testimonial2 .bg-light {
+  background-color: #f4f8fa !important;
+}
+
+.testimonial2 .subtitle {
+  color: #000000;
+  line-height: 24px;
+}
+
+.testimonial2 .testi2 .image-thumb {
+  background: url(https://www.wrappixel.com/demos/ui-kit/wrapkit/assets/images/testimonial/greadint-bg.png) no-repeat top center;
+  text-align: center;
+  padding: 10% 0;
+}
+
+.testimonial2 .testi2 .image-thumb img {
+  width: 400px;
+}
+
+.testimonial2 .testi2 .owl-dots {
+  display: inline-block;
+  position: relative;
+  top: -100px;
+}
+
+.testimonial2 .testi2 .owl-dots .owl-dot {
+  border-radius: 100%;
+  width: 70px;
+  height: 70px;
+  background-size: cover;
+  margin-right: 10px;
+  opacity: 0.4;
+  cursor: pointer;
+}
+
+.testimonial2 .testi2 .owl-dots .owl-dot span {
+  display: none;
+}
+
+.testimonial2 .testi2 .owl-dots .owl-dot.active,
+.testimonial2 .testi2 .owl-dots .owl-dot:hover {
+  opacity: 1;
+}
+
+@media (max-width: 767px) {
+  .testimonial2 .testi2 .owl-dots {
+    top: 0px;
+  }
+}
+
+.testimonial2 .btn-md {
+    padding: 18px 0px;
+    width: 60px;
+    height: 60px;
+    font-size: 20px;
+}
+
+.testimonial2 .btn-danger {
+    background: #1b151777 !important;
+    border: 1px solid #1a1415 !important;
+}
